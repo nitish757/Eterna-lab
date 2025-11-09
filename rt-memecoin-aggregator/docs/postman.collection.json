@@ -1,0 +1,61 @@
+{
+  "info": {
+    "name": "RT Meme Coin Aggregator",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/health"
+      }
+    },
+    {
+      "name": "List Tokens",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/tokens?limit=25&sortBy=volume&sortDir=desc&timeframe=24h",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "tokens"
+          ],
+          "query": [
+            {
+              "key": "limit",
+              "value": "25"
+            },
+            {
+              "key": "sortBy",
+              "value": "volume"
+            },
+            {
+              "key": "sortDir",
+              "value": "desc"
+            },
+            {
+              "key": "timeframe",
+              "value": "24h"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Refresh Tokens",
+      "request": {
+        "method": "POST",
+        "url": "{{baseUrl}}/tokens/refresh"
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8084"
+    }
+  ]
+}
